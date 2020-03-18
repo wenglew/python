@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FlaskTest</title>
+    <script src="../static/js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <h1>Hello Flask</h1>
+    <h1 id="box">这是一个div</h1>
+    <button id="btn">点击有惊喜</button>>
+    
+    <script>
+        //给按钮添加点击事件
+        $("#btn").click(function () {
+            alert("hello")
+            //发送一个ajax请求
+            $.ajax({
+                url:"/ajax",
+                type:"post",
+                data:{"name":"zhangsan","age":18},
+                success:function (datas) {
+                    alert(datas)
+                    $("#box").html(datas)
+                },
+                error:function () {
+                    alert("请求失败")
+                }
+            })
+
+            
+        })
+        
+    </script>
+
+
+</body>
+</html>
